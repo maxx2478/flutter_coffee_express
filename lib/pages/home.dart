@@ -2,7 +2,7 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:flutter/material.dart';
 import 'package:flutter_universal_base/pages/home_sub_pages/dashboard/dashboard.dart';
 
-import 'home_sub_pages/search.dart';
+import 'home_sub_pages/search/search.dart';
 
 class Home extends StatefulWidget {
 
