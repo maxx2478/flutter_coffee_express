@@ -1,8 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_universal_base/extensions/views.dart';
-import 'package:flutter_universal_base/pages/home_sub_pages/dashboard/product_widget.dart';
+import 'package:flutter_universal_base/presentation/pages/home_sub_pages/dashboard/product_widget.dart';
+import '../../../../utils/extensions/views.dart';
+import '../../../../di/main_viewmodel.dart';
+
 import 'package:flutter_universal_base/utils/constants.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -95,8 +98,23 @@ class _DashboardPageState extends State<DashboardPage> {
                                                 horizontal: 10),
                                             height: 160,
                                             width: size.width * 0.3,
-                                            child: Image.network(
-                                                fit: BoxFit.cover, url.url)),
+                                            child: CachedNetworkImage(
+                                              imageUrl: url.url,
+                                              imageBuilder: (context, imageProvider) => Container(
+                                                height: 160,
+                                                width: size.width * 0.3,
+                                                decoration: BoxDecoration(
+                                                  image: DecorationImage(
+
+                                                    image: imageProvider,
+                                                    fit: BoxFit.contain,
+                                                  ),
+                                                ),
+                                              ),
+                                              placeholder: (context, url) => Container(
+                                                  height: 25, width: 25, child: Container(height: 25, width : 25, child: const CircularProgressIndicator())),
+                                              errorWidget: (context, url, error) => const Icon(Icons.error),
+                                            )),
                                       ],
                                     )),
                               ));

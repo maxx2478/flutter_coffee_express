@@ -5,25 +5,27 @@ import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 
-Widget networkImage(String imgUrl) {
+Widget networkImage(String imgUrl, {double height = 50, double width = 50}) {
   return FadeIn(
-    child: CachedNetworkImage(
-      imageUrl: imgUrl,
-      imageBuilder: (context, imageProvider) => Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
+    child: Container(
+      height: height,
+      width: width,
+      child: CachedNetworkImage(
+        imageUrl: imgUrl,
+        imageBuilder: (context, imageProvider) => Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
               image: imageProvider,
               fit: BoxFit.cover,
-              colorFilter: const ColorFilter.mode(
-                Colors.red,
-                BlendMode.colorBurn,
-              )),
+            ),
+          ),
         ),
+        placeholder: (context, url) => SizedBox(
+            height: 25, width: 25, child: SizedBox(height: 25, width : 25, child: Lottie.asset('assets/lottie/loading.json',))),
+        errorWidget: (context, url, error) => const Icon(Icons.error),
       ),
-      placeholder: (context, url) => Container(
-          height: 25, width: 25, child: const CircularProgressIndicator()),
-      errorWidget: (context, url, error) => const Icon(Icons.error),
     ),
   );
 }
@@ -144,8 +146,9 @@ Widget paragraphText(String text, {double size = 10}) {
 Widget buttonText(String text) {
   return AutoSizeText(
     text,
-    style: const TextStyle(fontSize: 15),
-    minFontSize: 15,
+    style: GoogleFonts.poppins(
+        textStyle: const TextStyle(color: Colors.white, fontSize: 10)),
+    minFontSize: 9,
     maxLines: 2,
     overflow: TextOverflow.ellipsis,
   );
@@ -155,7 +158,7 @@ void showToast(String msg) {
   Fluttertoast.showToast(
       msg: msg,
       toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.CENTER,
+      gravity: ToastGravity.BOTTOM,
       timeInSecForIosWeb: 1,
       backgroundColor: Colors.black54,
       textColor: Colors.white,

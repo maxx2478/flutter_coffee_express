@@ -1,5 +1,7 @@
-const listOfCoffee = "";
+import 'package:flutter_universal_base/business/domain/image_model.dart';
+import 'package:flutter_universal_base/business/domain/product_model.dart';
 
+//Dummy lists
 var listOfImages = [
   ImageModel(
       url:
@@ -30,56 +32,32 @@ var listOfImages = [
 var listOfProducts = [
   ProductModel(
       url:
-      "https://i0.wp.com/naivo.in/storage/2021/08/product-image-2.png?w=1170&ssl=1",
+          "https://i0.wp.com/naivo.in/storage/2021/08/product-image-2.png?w=1170&ssl=1",
       title: "Espresso",
       desc: "Offer valid till the end of June 2023, Grab or Gone !",
-      ),
+      quantity: 1),
   ProductModel(
       url:
-      "https://upload.wikimedia.org/wikipedia/commons/c/c8/Cappuccino_at_Sightglass_Coffee.jpg",
+          "https://upload.wikimedia.org/wikipedia/commons/c/c8/Cappuccino_at_Sightglass_Coffee.jpg",
       title: "Cappuccino",
       desc: "Offer valid till the end of June 2023, Grab or Gone !",
-      ),
+      quantity: 1),
   ProductModel(
       url:
-      "https://globalassets.starbucks.com/assets/915736da018842e788147f7eab73db73.jpg?impolicy=1by1_wide_topcrop_630",
+          "https://globalassets.starbucks.com/assets/915736da018842e788147f7eab73db73.jpg?impolicy=1by1_wide_topcrop_630",
       title: "Caffe Mocha",
       desc: "Offer valid till the end of June 2023, Grab or Gone !",
-      ),
+      quantity: 1),
   ProductModel(
       url:
-      "https://globalassets.starbucks.com/assets/103b2b745f4848f884b793696a4573b6.jpg?impolicy=1by1_wide_topcrop_630",
+          "https://globalassets.starbucks.com/assets/103b2b745f4848f884b793696a4573b6.jpg?impolicy=1by1_wide_topcrop_630",
       title: "Cold Brew",
       desc: "Offer valid till the end of June 2023, Grab or Gone !",
-      ),
+      quantity: 1),
   ProductModel(
-    url:
-    "https://www.donnad.it/sites/default/files/styles/r_visual_d/public/201742/Caffe-macchiato-perfetto.jpg?itok=A0UAlZ1n",
-    title: "Caffe Macchiato",
-    desc: "Offer valid till the end of June 2023, Grab or Gone !",
-  ),
+      url:
+          "https://www.donnad.it/sites/default/files/styles/r_visual_d/public/201742/Caffe-macchiato-perfetto.jpg?itok=A0UAlZ1n",
+      title: "Caffe Macchiato",
+      desc: "Offer valid till the end of June 2023, Grab or Gone !",
+      quantity: 1),
 ];
-
-class ProductModel {
-  String url;
-  String title;
-  String desc;
-
-  ProductModel(
-      {required this.url,
-      required this.title,
-      required this.desc});
-}
-
-class ImageModel {
-  String url;
-  String offer;
-  String desc;
-  String footer;
-
-  ImageModel(
-      {required this.url,
-      required this.offer,
-      required this.desc,
-      required this.footer});
-}

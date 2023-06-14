@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_universal_base/extensions/views.dart';
-
-import '../../../utils/constants.dart';
+import 'package:flutter_universal_base/business/domain/product_model.dart';
+import 'package:flutter_universal_base/di/main_viewmodel.dart';
+import 'package:provider/provider.dart';
+import '../../../../utils/extensions/views.dart';
 
 class ProductWidget extends StatefulWidget {
   ProductModel productModel;
@@ -17,7 +18,7 @@ class _ProductWidgetState extends State<ProductWidget> {
   Widget build(BuildContext context) {
     return Card(
       elevation: 0,
-      margin: EdgeInsets.all(0),
+      margin: const EdgeInsets.all(0),
       color: Colors.white30,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       child: FittedBox(
@@ -35,12 +36,16 @@ class _ProductWidgetState extends State<ProductWidget> {
                     elevation: 5,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
-                    child: Image.network(
-                        width: 100,
-                        height: 100,
-                        fit: BoxFit.cover,
-                        widget.productModel.url)),
-                Positioned(left: 80, top: 6, child: headerText('\$25', 10, color: Colors.white70), )
+                    child: networkImage(
+                      widget.productModel.url,
+                      height: 100,
+                      width: 100,
+                    )),
+                Positioned(
+                  left: 85,
+                  top: 6,
+                  child: headerText('\$5', 10, color: Colors.white70),
+                )
               ]),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -69,7 +74,9 @@ class _ProductWidgetState extends State<ProductWidget> {
                             splashColor: Colors.white,
                             hoverColor: Colors.white,
                             borderRadius: BorderRadius.circular(15),
-                            onTap: () {},
+                            onTap: () {
+                              Provider.of<MainViewModel>(context, listen: false).addItemToCart(widget.productModel);
+                            },
                             child: const Padding(
                               padding: EdgeInsets.all(2),
                               child: Icon(
