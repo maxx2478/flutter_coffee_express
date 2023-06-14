@@ -8,7 +8,7 @@ import 'home_sub_pages/cart/cartpage.dart';
 import 'home_sub_pages/dashboard/dashboard.dart';
 import 'home_sub_pages/orders/orders.dart';
 import 'home_sub_pages/search/search.dart';
-import '../../di/main_viewmodel.dart';
+import '../../viewmodels/main_viewmodel.dart';
 
 class Home extends StatefulWidget {
   @override

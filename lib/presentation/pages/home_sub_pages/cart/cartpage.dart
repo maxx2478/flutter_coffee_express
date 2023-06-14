@@ -5,7 +5,7 @@ import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../utils/extensions/views.dart';
-import '../../../../di/main_viewmodel.dart';
+import '../../../../viewmodels/main_viewmodel.dart';
 
 class CartPage extends StatefulWidget {
   @override

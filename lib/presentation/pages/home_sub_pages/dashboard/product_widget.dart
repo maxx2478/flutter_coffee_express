@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_universal_base/business/domain/product_model.dart';
-import 'package:flutter_universal_base/di/main_viewmodel.dart';
+import 'package:flutter_universal_base/viewmodels/main_viewmodel.dart';
 import 'package:provider/provider.dart';
 import '../../../../utils/extensions/views.dart';
 

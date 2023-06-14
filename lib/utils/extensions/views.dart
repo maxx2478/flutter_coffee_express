@@ -74,9 +74,7 @@ Widget textFormField(
             maxLength: maxLength,
             key: ValueKey(valueKey),
             onChanged: (value) {
-              if (value != null) {
-                func(value);
-              }
+              func(value);
             },
             style: const TextStyle(color: Colors.black),
             maxLines: valueKey.toLowerCase().contains("desc") ? 3 : 1,

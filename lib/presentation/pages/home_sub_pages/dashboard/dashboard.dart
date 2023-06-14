@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_universal_base/presentation/pages/home_sub_pages/dashboard/product_widget.dart';
 import '../../../../utils/extensions/views.dart';
-import '../../../../di/main_viewmodel.dart';
+import '../../../../viewmodels/main_viewmodel.dart';
 
 import 'package:flutter_universal_base/utils/constants.dart';
 

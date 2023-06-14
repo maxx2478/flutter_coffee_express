@@ -12,14 +12,15 @@ class MainViewModel extends ChangeNotifier {
     productModel != null
         ? {
             cartItems.contains(productModel)
-                ? {
-              showToast("Already added in cart")
-            }
-                : {productModel.quantity = 1, cartItems.add(productModel),
-            showToast("Added to cart!")}
+                ? {showToast("Already added in cart")}
+                : {
+                    productModel.quantity = 1,
+                    cartItems.add(productModel),
+                    showToast("Added to cart!")
+                  }
           }
         : null;
-    
+
     notifyListeners();
   }
 
